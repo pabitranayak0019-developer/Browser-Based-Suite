@@ -144,3 +144,18 @@ body {
     align-items: center;
     justify-content: space-between;
 }
+
+/* Fix mobile offcanvas container background and layering */
+.offcanvas.glass-offcanvas {
+    background-color: #12161f !important; /* Solid dark background so text doesn't overlap */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    z-index: 1055; /* Ensures it stays above all content */
+}
+
+/* Ensure backdrop dims the background properly */
+.offcanvas-backdrop.show {
+    backdrop-filter: blur(4px);
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1050;
+}
