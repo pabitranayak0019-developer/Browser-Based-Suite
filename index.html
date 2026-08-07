@@ -35,73 +35,104 @@
     <!-- Canvas Background Particle System -->
     <canvas id="aurora-canvas"></canvas>
 
-    <!-- Top Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top glass-nav px-3 px-lg-5" id="main-navbar">
-        <div class="container-fluid">
-            <a class="navbar-brand d-flex align-items-center gap-2 fw-bold text-white fs-5" href="#hero">
-                <div class="brand-logo-3d">
-                    <i class="bi bi-box-seam-fill text-gradient"></i>
-                </div>
-                <span>Web-Tools-<span class="text-accent">HUB</span></span>
-            </a>
-            
-            <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                <i class="bi bi-list fs-2"></i>
-            </button>
+   <!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg glass-nav fixed-top navbar-dark">
+    <div class="container-fluid px-4">
+        <!-- Brand Logo / Title -->
+        <a class="navbar-brand fw-bold text-gradient fs-4" href="index.html">
+            <i class="bi bi-tools me-2"></i>OmniTool
+        </a>
 
-            <!-- Fixed Mobile Offcanvas Menu with All Tools -->
-            <div class="offcanvas offcanvas-end glass-offcanvas text-bg-dark" tabindex="-1" id="offcanvasNavbar">
-                <div class="offcanvas-header border-bottom border-white-10">
-                    <h5 class="offcanvas-title text-white">Navigation</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body align-items-stretch justify-content-between flex-column px-4 py-4">
-                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-2 text-start w-100 overflow-y-auto" style="max-height: 70vh;">
-                        <li class="nav-item"><a class="nav-link text-white active px-0" href="#hero"><i class="bi bi-house-door me-2 text-accent"></i>Home</a></li>
-                        
-                        <!-- Image Tools Sub-navigation -->
-                        <li class="nav-item mt-2">
-                            <span class="text-uppercase text-white-50 fs-8 fw-bold tracking-wider">Image Tools</span>
-                        </li>
-                        <li class="nav-item"><a class="nav-link text-white-50 ps-3 py-1 fs-8" href="#image-tools-section"><i class="bi bi-arrows-collapse me-2 text-accent"></i>Invert Colors</a></li>
-                        <li class="nav-item"><a class="nav-link text-white-50 ps-3 py-1 fs-8" href="#image-tools-section"><i class="bi bi-circle-half me-2 text-accent"></i>Black & White</a></li>
-                        <li class="nav-item"><a class="nav-link text-white-50 ps-3 py-1 fs-8" href="#image-tools-section"><i class="bi bi-file-zip me-2 text-accent"></i>Compress Image</a></li>
-                        <li class="nav-item"><a class="nav-link text-white-50 ps-3 py-1 fs-8" href="#image-tools-section"><i class="bi bi-crop me-2 text-accent"></i>Image Cropper</a></li>
-                        <li class="nav-item"><a class="nav-link text-white-50 ps-3 py-1 fs-8" href="#image-tools-section"><i class="bi bi-filetype-jpg me-2 text-accent"></i>PNG to JPG</a></li>
+        <!-- Mobile Toggle Button -->
+        <button class="navbar-toggler border-white-10 text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNavOffcanvas" aria-controls="mobileNavOffcanvas" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-                        <!-- PDF Tools Sub-navigation -->
-                        <li class="nav-item mt-2">
-                            <span class="text-uppercase text-white-50 fs-8 fw-bold tracking-wider">PDF Tools</span>
-                        </li>
-                        <li class="nav-item"><a class="nav-link text-white-50 ps-3 py-1 fs-8" href="#pdf-tools-section"><i class="bi bi-filetype-jpg me-2 text-accent"></i>JPG to PDF</a></li>
-                        <li class="nav-item"><a class="nav-link text-white-50 ps-3 py-1 fs-8" href="#pdf-tools-section"><i class="bi bi-intersect me-2 text-accent"></i>Merge PDF</a></li>
-                        <li class="nav-item"><a class="nav-link text-white-50 ps-3 py-1 fs-8" href="#pdf-tools-section"><i class="bi bi-filetype-html me-2 text-accent"></i>MHTML to PDF</a></li>
-                        <li class="nav-item"><a class="nav-link text-white-50 ps-3 py-1 fs-8" href="#pdf-tools-section"><i class="bi bi-lock-fill me-2 text-accent"></i>Protect PDF</a></li>
-                        <li class="nav-item"><a class="nav-link text-white-50 ps-3 py-1 fs-8" href="#pdf-tools-section"><i class="bi bi-info-circle-fill me-2 text-accent"></i>PDF Metadata Viewer</a></li>
-
-                        <!-- Social Tools Sub-navigation -->
-                        <li class="nav-item mt-2">
-                            <span class="text-uppercase text-white-50 fs-8 fw-bold tracking-wider">Social Media</span>
-                        </li>
-                        <li class="nav-item"><a class="nav-link text-white-50 ps-3 py-1 fs-8" href="#social-tools-section"><i class="bi bi-twitter-x me-2 text-accent"></i>Fake Tweet Generator</a></li>
-                        <li class="nav-item"><a class="nav-link text-white-50 ps-3 py-1 fs-8" href="#social-tools-section"><i class="bi bi-instagram me-2 text-accent"></i>Instagram Post Generator</a></li>
-
-                        <!-- Text & Lists Sub-navigation -->
-                        <li class="nav-item mt-2">
-                            <span class="text-uppercase text-white-50 fs-8 fw-bold tracking-wider">Text & Lists</span>
-                        </li>
-                        <li class="nav-item"><a class="nav-link text-white-50 ps-3 py-1 fs-8" href="#text-tools-section"><i class="bi bi-binary me-2 text-accent"></i>Text to Binary</a></li>
-                        <li class="nav-item"><a class="nav-link text-white-50 ps-3 py-1 fs-8" href="#text-tools-section"><i class="bi bi-router me-2 text-accent"></i>IP to Binary</a></li>
+        <!-- Desktop Navigation Links (Visible on LG and up) -->
+        <div class="collapse navbar-collapse d-none d-lg-flex justify-content-end" id="desktopNavbar">
+            <ul class="navbar-nav align-items-center gap-3">
+                <li class="nav-item">
+                    <a class="nav-link text-white-50 hover-text-white" href="index.html">Home</a>
+                </li>
+                <!-- Tools Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="desktopToolsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Tools
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark glass-card border-white-10 shadow-lg" aria-labelledby="desktopToolsDropdown">
+                        <li><a class="dropdown-item text-white-50 hover-text-white" href="image-tools.html"><i class="bi bi-image me-2 text-accent"></i>Image Tools</a></li>
+                        <li><a class="dropdown-item text-white-50 hover-text-white" href="pdf-tools.html"><i class="bi bi-file-earmark-pdf me-2 text-accent"></i>PDF Tools</a></li>
+                        <li><a class="dropdown-item text-white-50 hover-text-white" href="text-tools.html"><i class="bi bi-file-text me-2 text-accent"></i>Text Tools</a></li>
+                        <li><a class="dropdown-item text-white-50 hover-text-white" href="color-tools.html"><i class="bi bi-palette me-2 text-accent"></i>Color Tools</a></li>
+                        <li><hr class="dropdown-divider border-white-10"></li>
+                        <li><a class="dropdown-item text-white-50 hover-text-white" href="all-tools.html"><i class="bi bi-grid-fill me-2 text-accent"></i>All Tools</a></li>
                     </ul>
-
-                    <div class="d-flex align-items-center justify-content-center gap-2 mt-4 pt-3 border-top border-white-10">
-                        <a href="#text-tools-section" class="btn btn-gradient btn-sm rounded-pill px-4 shadow-neon w-100">Get Started</a>
-                    </div>
-                </div>
-            </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white-50 hover-text-white" href="about.html">About</a>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
+<!-- Mobile Offcanvas Menu (Visible inside the mobile drawer popup) -->
+<div class="offcanvas offcanvas-end glass-offcanvas text-white" tabindex="-1" id="mobileNavOffcanvas" aria-labelledby="mobileNavOffcanvasLabel">
+    <div class="offcanvas-header border-bottom border-white-10">
+        <h5 class="offcanvas-title fw-bold text-gradient" id="mobileNavOffcanvasLabel">
+            <i class="bi bi-compass me-2"></i>Navigation
+        </h5>
+        <button type="button" class="btn-close btn-close-white text-reset shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    
+    <div class="offcanvas-body px-4 py-4">
+        <ul class="navbar-nav w-150">
+            <li class="nav-item mb-2">
+                <a class="nav-link text-white fs-5 px-0" href="index.html">
+                    <i class="bi bi-house-door me-2 text-accent"></i>Home
+                </a>
+            </li>
+            
+            <!-- Mobile Tools Section Header -->
+            <li class="nav-item mt-3 mb-1">
+                <span class="text-uppercase text-white-50 fs-8 fw-bold tracking-wider">All Tools</span>
+            </li>
+            
+            <!-- Individual Tools Links -->
+            <li class="nav-item">
+                <a class="nav-link text-white-50 hover-text-white ps-3 py-2" href="image-tools.html">
+                    <i class="bi bi-image me-2 text-accent"></i>Image Tools
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white-50 hover-text-white ps-3 py-2" href="pdf-tools.html">
+                    <i class="bi bi-file-earmark-pdf me-2 text-accent"></i>PDF Tools
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white-50 hover-text-white ps-3 py-2" href="text-tools.html">
+                    <i class="bi bi-file-text me-2 text-accent"></i>Text Tools
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white-50 hover-text-white ps-3 py-2" href="color-tools.html">
+                    <i class="bi bi-palette me-2 text-accent"></i>Color Tools
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white-50 hover-text-white ps-3 py-2" href="all-tools.html">
+                    <i class="bi bi-grid-fill me-2 text-accent"></i>View All Tools
+                </a>
+            </li>
+
+            <li class="nav-item mt-4">
+                <a class="nav-link text-white fs-5 px-0" href="about.html">
+                    <i class="bi bi-info-circle me-2 text-accent"></i>About
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
     <!-- Hero Section -->
     <section id="hero" class="min-vh-100 d-flex align-items-center position-relative pt-5">
         <div class="container position-relative z-2">
@@ -160,6 +191,7 @@
             </ul>
 
             <div class="tab-content" id="imageToolTabContent">
+                
                 <!-- TOOL: INVERT IMAGE COLORS -->
                 <div class="tab-pane fade show active" id="tool-invert" role="tabpanel">
                     <div class="glass-card p-3 p-md-4 rounded-4 border-glow shadow-3d max-w-800 mx-auto">
@@ -470,6 +502,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -512,6 +545,7 @@
             </ul>
 
             <div class="tab-content" id="pdfToolTabContent">
+
                 <!-- PDF TOOL 1: JPG TO PDF -->
                 <div class="tab-pane fade show active" id="pdf-tool-jpg-to-pdf" role="tabpanel">
                     <div class="glass-card p-3 p-md-4 rounded-4 border-glow shadow-3d max-w-800 mx-auto">
@@ -655,6 +689,7 @@
                             </div>
                         </div>
 
+                        <!-- Simple Process / Tutorial Section -->
                         <div class="mt-4 pt-3 border-top border-white-10">
                             <h6 class="text-white fw-bold fs-7 mb-2">Simple Process</h6>
                             <p class="text-secondary-custom fs-8 fw-semibold mb-3">How to convert .mhtml & .mht files to PDF ?[cite: 1]</p>
@@ -684,6 +719,7 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
 
@@ -788,7 +824,9 @@
                                                 <th scope="col" style="width: 65%;">Value</th>
                                             </tr>
                                         </thead>
-                                        <tbody id="pdf-metadata-table-body"></tbody>
+                                        <tbody id="pdf-metadata-table-body">
+                                            <!-- Dynamically populated metadata rows -->
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>
@@ -803,6 +841,7 @@
                             </div>
                         </div>
 
+                        <!-- Simple Process / Tutorial Section -->
                         <div class="mt-4 pt-3 border-top border-white-10">
                             <h6 class="text-white fw-bold fs-7 mb-2">Simple Process</h6>
                             <p class="text-secondary-custom fs-8 fw-semibold mb-3">How to view a pdf's metadata online ?</p>
@@ -832,8 +871,10 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -861,6 +902,7 @@
             </ul>
 
             <div class="tab-content" id="socialToolTabContent">
+                
                 <!-- TOOL 1: FAKE TWEET GENERATOR -->
                 <div class="tab-pane fade show active" id="tool-tweet-gen" role="tabpanel">
                     <div class="glass-card p-3 p-md-4 rounded-4 border-glow shadow-3d max-w-800 mx-auto">
@@ -1145,6 +1187,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -1173,6 +1216,7 @@
             </ul>
 
             <div class="tab-content" id="textToolTabContent">
+                
                 <!-- TOOL 1: TEXT TO BINARY -->
                 <div class="tab-pane fade show active" id="tool-text-binary" role="tabpanel">
                     <div class="glass-card p-3 p-md-4 rounded-4 border-glow shadow-3d max-w-800 mx-auto">
@@ -1188,11 +1232,13 @@
 
                         <div class="glass-card p-3 rounded-4 mb-4">
                             <div class="row g-3">
+                                <!-- Raw Text Area -->
                                 <div class="col-md-5">
                                     <label for="raw-text-input" class="form-label text-white fw-bold fs-8 mb-1">Raw Text</label>
                                     <textarea id="raw-text-input" class="form-control bg-dark text-light border-secondary fs-8 font-monospace" rows="6" placeholder="Type or paste your text here..."></textarea>
                                 </div>
 
+                                <!-- Direction Arrow Indicator -->
                                 <div class="col-md-2 d-flex align-items-center justify-content-center">
                                     <div class="text-center text-accent fs-3 d-none d-md-block">
                                         <i class="bi bi-arrow-right-circle-fill"></i>
@@ -1202,18 +1248,21 @@
                                     </div>
                                 </div>
 
+                                <!-- Binary Output Area -->
                                 <div class="col-md-5">
                                     <label for="binary-output-text" class="form-label text-white fw-bold fs-8 mb-1">Binary Output</label>
                                     <textarea id="binary-output-text" class="form-control bg-dark text-light border-secondary fs-8 font-monospace" readonly placeholder="Binary code output..."></textarea>
                                 </div>
                             </div>
 
+                            <!-- Action Control Buttons -->
                             <div class="d-flex justify-content-end gap-2 mt-3 pt-3 border-top border-white-10">
                                 <button id="reset-binary-btn" class="btn btn-glass btn-sm rounded-pill px-3 fs-8">Reset</button>
                                 <button id="copy-binary-btn" class="btn btn-gradient btn-sm rounded-pill px-4 shadow-neon fs-8"><i class="bi bi-copy me-1"></i>Copy Binary</button>
                             </div>
                         </div>
 
+                        <!-- Tool Educational Description -->
                         <div class="mt-4 pt-3 border-top border-white-10">
                             <h6 class="text-white fw-bold fs-7 mb-2">About Text to Binary</h6>
                             <p class="text-secondary-custom fs-8 mb-0">
@@ -1238,11 +1287,13 @@
 
                         <div class="glass-card p-3 rounded-4 mb-4">
                             <div class="row g-3">
+                                <!-- Raw IP Input Area -->
                                 <div class="col-md-5">
                                     <label for="ip-input-text" class="form-label text-white fw-bold fs-8 mb-1">Enter IP Address(es)</label>
                                     <textarea id="ip-input-text" class="form-control bg-dark text-light border-secondary fs-8 font-monospace" rows="6" placeholder="192.168.1.1&#10;10.0.0.1&#10;172.16.254.1"></textarea>
                                 </div>
 
+                                <!-- Direction Arrow Indicator -->
                                 <div class="col-md-2 d-flex align-items-center justify-content-center">
                                     <div class="text-center text-accent fs-3 d-none d-md-block">
                                         <i class="bi bi-arrow-right-circle-fill"></i>
@@ -1252,12 +1303,14 @@
                                     </div>
                                 </div>
 
+                                <!-- Binary Output Area -->
                                 <div class="col-md-5">
                                     <label for="ip-output-text" class="form-label text-white fw-bold fs-8 mb-1">Binary Format Output</label>
                                     <textarea id="ip-output-text" class="form-control bg-dark text-light border-secondary fs-8 font-monospace" readonly placeholder="Binary IP output..."></textarea>
                                 </div>
                             </div>
 
+                            <!-- Action Control Buttons -->
                             <div class="d-flex justify-content-end gap-2 mt-3 pt-3 border-top border-white-10">
                                 <button id="convert-ip-btn" class="btn btn-gradient btn-sm rounded-pill px-4 shadow-neon fs-8"><i class="bi bi-gear-fill me-1"></i>Convert IPs</button>
                                 <button id="copy-ip-btn" class="btn btn-glass btn-sm rounded-pill px-3 fs-8"><i class="bi bi-copy me-1"></i>Copy</button>
@@ -1265,6 +1318,7 @@
                             </div>
                         </div>
 
+                        <!-- Simple Process / Tutorial Section -->
                         <div class="mt-4 pt-3 border-top border-white-10">
                             <h6 class="text-white fw-bold fs-7 mb-2">Simple Process</h6>
                             <p class="text-secondary-custom fs-8 fw-semibold mb-3">How to convert IP addresses to binary format?</p>
@@ -1289,6 +1343,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
