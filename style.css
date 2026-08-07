@@ -34,7 +34,7 @@ body {
 }
 
 .glass-offcanvas {
-    background: rgba(18, 20, 29, 0.95);
+    background: rgba(18, 20, 29, 0.98);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
 }
@@ -46,18 +46,25 @@ body {
     border: 1px solid var(--border-white-10);
 }
 
-/* Mobile Navigation Display Fix */
+/* Mobile Navigation Dropdown and List Fix */
 @media (max-width: 991.98px) {
     .offcanvas .navbar-nav {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
         width: 100%;
     }
     .offcanvas .navbar-nav .nav-item {
         width: 100%;
-        text-align: center;
-        padding: 6px 0;
+        text-align: left;
+        padding: 4px 0;
+    }
+    .offcanvas .navbar-nav .dropdown-menu {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--border-white-10);
+        float: none;
+        width: 100%;
+        margin-top: 5px;
     }
 }
 
