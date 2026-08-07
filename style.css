@@ -192,58 +192,76 @@ body .offcanvas .btn-close {
 }
 
 /* ==========================================
-   PERFECT NAVBAR ALIGNMENT (MATCHING SCREENSHOT)
+   FINAL PROFESSIONAL SINGLE-LINE NAVBAR
    ========================================== */
 
-/* Navbar Container Spacing */
-.navbar {
-    padding: 1rem 2rem !important;
+/* Enable smooth scrolling across the entire page */
+html {
+    scroll-behavior: smooth;
 }
 
-/* Brand/Logo Styling (Left Side) */
+/* Navbar Base Styling */
+.navbar {
+    background-color: rgba(11, 15, 25, 0.9) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 0.85rem 2rem !important;
+}
+
+/* Brand / Logo Styling */
 .navbar-brand {
     color: #ffffff !important;
-    font-weight: 800 !important;
-    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    font-size: 1.2rem !important;
     letter-spacing: 0.5px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
-/* Push Navigation to Right & Add Spacing */
+/* Force Navbar Items to Line Up Horizontally on PC */
 .navbar-collapse {
+    display: flex !important;
     justify-content: flex-end !important;
+    flex-basis: auto;
 }
 
 .navbar-nav {
-    display: flex;
+    display: flex !important;
     flex-direction: row !important;
     align-items: center;
-    gap: 2rem !important; /* Proper spacing between links */
+    gap: 2.2rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
-/* Standard Nav Links (Gray color like screenshot) */
+/* Nav Links Styling (Muted Gray to Pure White on Hover/Active) */
 .navbar-nav .nav-link {
-    color: #9ca3af !important; /* Professional muted gray */
-    font-size: 1rem;
+    color: #94a3b8 !important; /* Muted gray matching your screenshot */
+    font-size: 0.95rem;
     font-weight: 500;
     padding: 0 !important;
-    transition: color 0.3s ease;
+    transition: color 0.25s ease-in-out;
+    white-space: nowrap;
 }
 
-/* Active or Hovered Nav Link (White color like "Home") */
-.navbar-nav .nav-link.active,
-.navbar-nav .nav-link:hover {
-    color: #ffffff !important; /* Pure white */
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: #ffffff !important; /* Pure white when active or hovered */
 }
 
-/* Mobile Responsive Fix */
+/* Mobile Responsive Drawer Styling */
 @media (max-width: 991px) {
     .navbar-nav {
         flex-direction: column !important;
-        align-items: flex-start;
+        align-items: flex-start !important;
         gap: 1.5rem !important;
-        padding: 1.5rem;
+        padding-top: 1rem;
+    }
+    
+    .glass-offcanvas {
+        background-color: #0b0f19 !important;
+        color: #ffffff !important;
     }
 }
