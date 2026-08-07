@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALL-IN-ONE-TOOL 3D — Next-Gen All-in-One SaaS Web Tools</title>
+    <meta name="description" content="Production-ready premium suite of browser-based tools with zero installation.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5.3 & Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- html2canvas Library for Capturing Mockups -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <!-- pdf-lib library for in-browser PDF manipulation & encryption -->
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-dark text-light overflow-x-hidden">
+
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
+
+    <!-- Mouse Spotlight Overlay -->
+    <div id="cursor-spotlight"></div>
+
+    <!-- Canvas Background Particle System -->
+    <canvas id="aurora-canvas"></canvas>
+
+    <!-- Top Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top glass-nav px-3 px-lg-5" id="main-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center gap-2 fw-bold text-white fs-5" href="#">
+                <div class="brand-logo-3d">
+                    <i class="bi bi-box-seam-fill text-gradient"></i>
+                </div>
+                <span>ALL-IN-ONE-<span class="text-accent">TOOL</span></span>
+            </a>
+            
+            <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+                <i class="bi bi-list fs-2"></i>
+            </button>
+
+            <div class="offcanvas offcanvas-end glass-offcanvas text-bg-dark" tabindex="-1" id="offcanvasNavbar">
+                <div class="offcanvas-header border-bottom border-white-10">
+                    <h5 class="offcanvas-title text-white">Navigation</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+                </div>
+                <div class="offcanvas-body align-items-center">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-3">
+                        <li class="nav-item"><a class="nav-link text-white active" href="#hero">Home</a></li>
+                        <li class="nav-item"><a class="nav-link text-white-50" href="#image-tools-section">Image Tools</a></li>
+                        <li class="nav-item"><a class="nav-link text-white-50" href="#pdf-tools-section">PDF Tools</a></li>
+                        <li class="nav-item"><a class="nav-link text-white-50" href="#social-tools-section">Social Tools</a></li>
+                        <li class="nav-item"><a class="nav-link text-white-50" href="#text-tools-section">Text & Lists</a></li>
+                    </ul>
+                    <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0">
+                        <button class="btn btn-glass btn-sm rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#loginModal">Sign In</button>
+                        <a href="#text-tools-section" class="btn btn-gradient btn-sm rounded-pill px-3 shadow-neon">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="min-vh-100 d-flex align-items-center position-relative pt-5">
+        <div class="container position-relative z-2">
+            <div class="row align-items-center min-vh-100 py-5">
+                <div class="col-lg-7 text-center text-lg-start">
+                    <div class="badge glass-badge mb-3 px-3 py-2 rounded-pill d-inline-flex align-items-center gap-2 fs-8">
+                        <span class="badge-dot"></span> Next-Gen Web Utility Suite
+                    </div>
+                    <h1 class="display-4 fw-extrabold text-white mb-3 lh-sm">
+                        All Your Online Tools <br>
+                        <span class="text-gradient">In One Place</span>
+                    </h1>
+                    <p class="lead text-secondary-custom mb-4 pe-lg-5 fs-6">
+                        Lightweight, private, and powered by client-side browser performance. Zero file uploads to external servers.[cite: 1]
+                    </p>
+
+                    <div class="d-flex gap-3 justify-content-center justify-content-lg-start flex-wrap">
+                        <a href="#image-tools-section" class="btn btn-gradient rounded-4 px-4 shadow-neon fs-7 py-2">Image Tools</a>
+                        <a href="#pdf-tools-section" class="btn btn-glass rounded-4 px-4 fs-7 py-2">PDF Tools</a>
+                        <a href="#social-tools-section" class="btn btn-glass rounded-4 px-4 fs-7 py-2 text-accent border-accent"><i class="bi bi-share me-1"></i>Social Tools</a>
+                        <a href="#text-tools-section" class="btn btn-glass rounded-4 px-4 fs-7 py-2 text-info border-info"><i class="bi bi-fonts me-1"></i>Text & Lists</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 mt-5 mt-lg-0 text-center position-relative">
+                    <div class="hero-3d-scene">
+                        <div class="glass-card main-3d-cube p-4 rounded-4 text-start shadow-3d">
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div class="icon-shape bg-primary-glow"><i class="bi bi-box-seam fs-4 text-white"></i></div>
+                                <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-3 fs-8">100% In-Browser</span>
+                            </div>
+                            <h6 class="text-white fw-bold fs-6">Browser-Based Suite</h6>
+                            <p class="text-secondary-custom fs-8 mb-2">Process photos, PDFs, MHTML/MHT archives, social graphics, and text tools securely right in your web browser with client-side performance.[cite: 1]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 1: IMAGE PROCESSING STUDIO -->
+    <section id="image-tools-section" class="py-5 border-top border-white-10">
+        <div class="container">
+            <div class="text-center max-w-700 mx-auto mb-4">
+                <span class="badge bg-primary-glow text-white border border-primary px-3 py-1 rounded-pill mb-2 fs-8">Private & Secure</span>
+                <h2 class="fw-bold text-white fs-3">Image Processing Studio</h2>
+                <p class="text-secondary-custom fs-7">Invert colors, convert to black & white, compress, crop, and transform image files entirely inside your browser.[cite: 1]</p>
+            </div>
+
+            <ul class="nav nav-pills justify-content-center mb-4 gap-2" id="imageToolTabs" role="tablist">
+                <li class="nav-item"><button class="nav-link active btn-glass-filter rounded-pill fs-7" id="invert-tab" data-bs-toggle="pill" data-bs-target="#tool-invert" type="button"><i class="bi bi-arrows-collapse me-2"></i>Invert Colors</button></li>
+                <li class="nav-item"><button class="nav-link btn-glass-filter rounded-pill fs-7" id="bw-tab" data-bs-toggle="pill" data-bs-target="#tool-bw" type="button"><i class="bi bi-circle-half me-2"></i>Black & White</button></li>
+                <li class="nav-item"><button class="nav-link btn-glass-filter rounded-pill fs-7" id="compress-tab" data-bs-toggle="pill" data-bs-target="#tool-compress" type="button"><i class="bi bi-file-zip me-2"></i>Compress Image</button></li>
+                <li class="nav-item"><button class="nav-link btn-glass-filter rounded-pill fs-7" id="cropper-tab" data-bs-toggle="pill" data-bs-target="#tool-cropper" type="button"><i class="bi bi-crop me-2"></i>Image Cropper</button></li>
+                <li class="nav-item"><button class="nav-link btn-glass-filter rounded-pill fs-7" id="png-jpg-tab" data-bs-toggle="pill" data-bs-target="#tool-png-jpg" type="button"><i class="bi bi-filetype-jpg me-2"></i>PNG to JPG</button></li>
+            </ul>
+
+            <div class="tab-content" id="imageToolTabContent">
+                
+                <!-- TOOL: INVERT IMAGE COLORS -->
+                <div class="tab-pane fade show active" id="tool-invert" role="tabpanel">
+                    <div class="glass-card p-3 p-md-4 rounded-4 border-glow shadow-3d max-w-800 mx-auto">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-shape bg-primary-glow small-icon"><i class="bi bi-arrows-collapse fs-4 text-white"></i></div>
+                            <div>
+                                <h5 class="fw-bold text-white mb-0 fs-6">Invert Image Colors</h5>
+                                <p class="text-secondary-custom fs-8 mb-0">Easily invert the colors of an image online. Upload your photo and instantly create a negative color version.[cite: 1]</p>
+                            </div>
+                        </div>
+
+                        <div id="invert-drop-zone" class="drop-zone-glass p-4 text-center rounded-4 mb-3 cursor-pointer">
+                            <input type="file" id="invert-file-input" accept="image/png, image/jpeg, image/webp" class="d-none">
+                            <i class="bi bi-cloud-arrow-up fs-2 text-gradient mb-2 d-block"></i>
+                            <h6 class="text-white fw-bold mb-1 fs-7">Drop files here or browse</h6>
+                            <p class="text-secondary-custom fs-8 mb-0">Up to 1 file &middot; Max 100MB each &middot; Accepted: PNG, JPEG, WEBP[cite: 1]</p>
+                        </div>
+
+                        <div id="invert-workspace" class="d-none">
+                            <div class="glass-card p-3 rounded-3 mb-3">
+                                <div class="row align-items-center g-3">
+                                    <div class="col-md-7">
+                                        <label for="invert-amount" class="form-label text-white fw-bold fs-8 mb-1 d-flex justify-content-between">
+                                            <span>Inversion Intensity</span>
+                                            <span id="invert-amount-val" class="text-accent">100% (Full Negative)</span>
+                                        </label>
+                                        <input type="range" class="form-range" id="invert-amount" min="0" max="100" value="100">
+                                    </div>
+                                    <div class="col-md-5 text-end">
+                                        <button id="reset-invert-btn" class="btn btn-glass btn-sm rounded-pill px-3 fs-8">Choose New File</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row g-3 text-center mb-3">
+                                <div class="col-6">
+                                    <div class="glass-card p-2 rounded-3 h-100">
+                                        <span class="badge bg-secondary mb-1 fs-8">Original</span>
+                                        <div class="preview-img-container rounded-3 overflow-hidden mb-2">
+                                            <img id="invert-orig-img" src="" alt="Original" class="img-fluid">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="glass-card p-2 rounded-3 h-100">
+                                        <span class="badge bg-success mb-1 fs-8">Negative</span>
+                                        <div class="preview-img-container rounded-3 overflow-hidden mb-2">
+                                            <canvas id="invert-canvas" class="img-fluid rounded"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-center">
+                                <a id="download-invert-btn" href="#" download="inverted-negative.png" class="btn btn-gradient btn-sm rounded-pill px-4 shadow-neon fs-7">
+                                    <i class="bi bi-download me-1"></i> Download Negative Image
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOOL: BLACK AND WHITE CONVERTER -->
+                <div class="tab-pane fade" id="tool-bw" role="tabpanel">
+                    <div class="glass-card p-3 p-md-4 rounded-4 border-glow shadow-3d max-w-800 mx-auto">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-shape bg-primary-glow small-icon"><i class="bi bi-circle-half fs-4 text-white"></i></div>
+                            <div>
+                                <h5 class="fw-bold text-white mb-0 fs-6">Black and White Converter</h5>
+                                <p class="text-secondary-custom fs-8 mb-0">Private / Runs in your browser. Files are never uploaded. Easily convert any image to black and white online.[cite: 1]</p>
+                            </div>
+                        </div>
+
+                        <div id="bw-drop-zone" class="drop-zone-glass p-4 text-center rounded-4 mb-3 cursor-pointer">
+                            <input type="file" id="bw-file-input" accept="image/png, image/jpeg, image/webp" class="d-none">
+                            <i class="bi bi-cloud-arrow-up fs-2 text-gradient mb-2 d-block"></i>
+                            <h6 class="text-white fw-bold mb-1 fs-7">Drop files here or browse</h6>
+                            <p class="text-secondary-custom fs-8 mb-0">Up to 1 file &middot; Max 100MB each &middot; Accepted: PNG, JPEG, WEBP[cite: 1]</p>
+                        </div>
+
+                        <div id="bw-workspace" class="d-none">
+                            <div class="glass-card p-3 rounded-3 mb-3 text-end">
+                                <button id="reset-bw-btn" class="btn btn-glass btn-sm rounded-pill px-3 fs-8">Choose New File</button>
+                            </div>
+
+                            <div class="row g-3 text-center mb-3">
+                                <div class="col-6">
+                                    <div class="glass-card p-2 rounded-3 h-100">
+                                        <span class="badge bg-secondary mb-1 fs-8">Original</span>
+                                        <div class="preview-img-container rounded-3 overflow-hidden mb-2">
+                                            <img id="bw-orig-img" src="" alt="Original Image" class="img-fluid">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="glass-card p-2 rounded-3 h-100">
+                                        <span class="badge bg-success mb-1 fs-8">Black & White</span>
+                                        <div class="preview-img-container rounded-3 overflow-hidden mb-2">
+                                            <canvas id="bw-canvas" class="img-fluid rounded"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-center mb-3">
+                                <a id="download-bw-btn" href="#" download="bw-image.png" class="btn btn-gradient btn-sm rounded-pill px-4 shadow-neon fs-7">
+                                    <i class="bi bi-download me-1"></i> Download Image
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOOL: COMPRESS IMAGE -->
+                <div class="tab-pane fade" id="tool-compress" role="tabpanel">
+                    <div class="glass-card p-3 p-md-4 rounded-4 border-glow shadow-3d max-w-800 mx-auto">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-shape bg-primary-glow small-icon"><i class="bi bi-file-zip fs-4 text-white"></i></div>
+                            <div>
+                                <h5 class="fw-bold text-white mb-0 fs-6">Compress Image</h5>
+                                <p class="text-secondary-custom fs-8 mb-0">Private / Runs in your browser. Files are never uploaded. Reduce image size easily.[cite: 1]</p>
+                            </div>
+                        </div>
+
+                        <div id="compress-drop-zone" class="drop-zone-glass p-4 text-center rounded-4 mb-3 cursor-pointer">
+                            <input type="file" id="compress-file-input" accept="image/png, image/jpeg, image/webp" class="d-none">
+                            <i class="bi bi-cloud-arrow-up fs-2 text-gradient mb-2 d-block"></i>
+                            <h6 class="text-white fw-bold mb-1 fs-7">Drop files here or browse</h6>
+                            <p class="text-secondary-custom fs-8 mb-0">Up to 1 file &middot; Max 100MB each &middot; Accepted: PNG, JPEG, WEBP[cite: 1]</p>
+                        </div>
+
+                        <div id="compress-workspace" class="d-none">
+                            <div class="glass-card p-3 rounded-3 mb-3">
+                                <div class="row align-items-center g-3">
+                                    <div class="col-md-7">
+                                        <label for="compress-quality" class="form-label text-white fw-bold fs-8 mb-1 d-flex justify-content-between">
+                                            <span>Compression Level</span>
+                                            <span id="compress-quality-val" class="text-accent">70% (Balanced)</span>
+                                        </label>
+                                        <input type="range" class="form-range" id="compress-quality" min="10" max="95" value="70">
+                                    </div>
+                                    <div class="col-md-5 text-end">
+                                        <button id="reset-compress-btn" class="btn btn-glass btn-sm rounded-pill px-3 fs-8">Choose New File</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row g-3 text-center mb-3">
+                                <div class="col-6">
+                                    <div class="glass-card p-2 rounded-3 h-100">
+                                        <span class="badge bg-secondary mb-1 fs-8">Original</span>
+                                        <div class="preview-img-container rounded-3 overflow-hidden mb-2">
+                                            <img id="compress-orig-img" src="" alt="Original Image" class="img-fluid">
+                                        </div>
+                                        <div id="compress-orig-size" class="text-secondary-custom fs-8 fw-bold">Size: 0 KB</div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="glass-card p-2 rounded-3 h-100">
+                                        <span class="badge bg-success mb-1 fs-8">Compressed</span>
+                                        <div class="preview-img-container rounded-3 overflow-hidden mb-2">
+                                            <canvas id="compress-canvas" class="img-fluid rounded"></canvas>
+                                        </div>
+                                        <div id="compress-new-size" class="text-accent fs-8 fw-bold">Size: 0 KB</div>
+                                        <div id="compress-savings" class="badge bg-success-subtle text-success border border-success-subtle rounded-pill fs-8 mt-1">Saved 0%</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-center mb-3">
+                                <a id="download-compress-btn" href="#" download="compressed-image.jpg" class="btn btn-gradient btn-sm rounded-pill px-4 shadow-neon fs-7">
+                                    <i class="bi bi-download me-1"></i> Download Compressed Image
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOOL: IMAGE CROPPER -->
+                <div class="tab-pane fade" id="tool-cropper" role="tabpanel">
+                    <div class="glass-card p-3 p-md-4 rounded-4 border-glow shadow-3d max-w-800 mx-auto">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-shape bg-primary-glow small-icon"><i class="bi bi-crop fs-4 text-white"></i></div>
+                            <div>
+                                <h5 class="fw-bold text-white mb-0 fs-6">Image Cropper</h5>
+                                <p class="text-secondary-custom fs-8 mb-0">Private / Runs in your browser. Files are never uploaded. Crop JPG, PNG, WEBP or GIF easily.[cite: 1]</p>
+                            </div>
+                        </div>
+
+                        <div id="crop-drop-zone" class="drop-zone-glass p-4 text-center rounded-4 mb-3 cursor-pointer">
+                            <input type="file" id="crop-file-input" accept="image/png, image/jpeg, image/webp, image/gif" class="d-none">
+                            <i class="bi bi-cloud-arrow-up fs-2 text-gradient mb-2 d-block"></i>
+                            <h6 class="text-white fw-bold mb-1 fs-7">Drop files here or browse</h6>
+                            <p class="text-secondary-custom fs-8 mb-0">Up to 1 file &middot; Max 100MB each &middot; Accepted: PNG, JPEG, WEBP, GIF[cite: 1]</p>
+                        </div>
+
+                        <div id="crop-workspace" class="d-none">
+                            <div class="glass-card p-3 rounded-3 mb-3">
+                                <div class="row align-items-center g-3 mb-2">
+                                    <div class="col-md-8 d-flex flex-wrap align-items-center gap-2">
+                                        <span class="text-white fw-bold fs-8">Aspect Ratio:</span>
+                                        <div class="btn-group btn-group-sm" role="group" id="crop-aspect-ratios">
+                                            <button type="button" class="btn btn-glass active" data-ratio="free">Free</button>
+                                            <button type="button" class="btn btn-glass" data-ratio="1:1">1:1</button>
+                                            <button type="button" class="btn btn-glass" data-ratio="4:3">4:3</button>
+                                            <button type="button" class="btn btn-glass" data-ratio="16:9">16:9</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 text-md-end">
+                                        <button id="reset-crop-btn" class="btn btn-glass btn-sm rounded-pill px-3 fs-8">Choose New File</button>
+                                    </div>
+                                </div>
+                                <div class="row align-items-center g-2 pt-2 border-top border-white-10">
+                                    <div class="col-6 col-sm-3">
+                                        <label class="form-label text-secondary-custom fs-8 mb-0">Width (px)</label>
+                                        <input type="number" id="crop-w-input" class="form-control form-control-sm bg-dark text-light border-secondary fs-8" min="10">
+                                    </div>
+                                    <div class="col-6 col-sm-3">
+                                        <label class="form-label text-secondary-custom fs-8 mb-0">Height (px)</label>
+                                        <input type="number" id="crop-h-input" class="form-control form-control-sm bg-dark text-light border-secondary fs-8" min="10">
+                                    </div>
+                                    <div class="col-6 col-sm-3">
+                                        <label class="form-label text-secondary-custom fs-8 mb-0">X Position</label>
+                                        <input type="number" id="crop-x-input" class="form-control form-control-sm bg-dark text-light border-secondary fs-8" min="0">
+                                    </div>
+                                    <div class="col-6 col-sm-3">
+                                        <label class="form-label text-secondary-custom fs-8 mb-0">Y Position</label>
+                                        <input type="number" id="crop-y-input" class="form-control form-control-sm bg-dark text-light border-secondary fs-8" min="0">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="cropper-canvas-wrapper glass-card p-2 rounded-3 mb-3 text-center overflow-auto position-relative">
+                                <div id="cropper-container" class="d-inline-block position-relative unselectable">
+                                    <canvas id="crop-canvas"></canvas>
+                                    <div id="crop-overlay-box" class="crop-overlay">
+                                        <div class="crop-grid-line h"></div>
+                                        <div class="crop-grid-line v"></div>
+                                        <div class="crop-handle handle-nw" data-handle="nw"></div>
+                                        <div class="crop-handle handle-ne" data-handle="ne"></div>
+                                        <div class="crop-handle handle-sw" data-handle="sw"></div>
+                                        <div class="crop-handle handle-se" data-handle="se"></div>
+                                        <div class="crop-dimensions-badge" id="crop-badge">0 x 0</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="glass-card p-3 rounded-3 mb-3 text-center">
+                                <span class="badge bg-success mb-2 fs-8">Cropped Result Preview</span>
+                                <div class="preview-img-container rounded-3 overflow-hidden mb-2 mx-auto">
+                                    <canvas id="crop-result-canvas" class="img-fluid rounded"></canvas>
+                                </div>
+                                <a id="download-crop-btn" href="#" download="cropped-image.png" class="btn btn-gradient btn-sm rounded-pill px-4 shadow-neon fs-7">
+                                    <i class="bi bi-download me-1"></i> Download Cropped Image
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PNG TO JPG CONVERTER TOOL -->
+                <div class="tab-pane fade" id="tool-png-jpg" role="tabpanel">
+                    <div class="glass-card p-3 p-md-4 rounded-4 border-glow shadow-3d max-w-800 mx-auto">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-shape bg-primary-glow small-icon"><i class="bi bi-filetype-jpg fs-4 text-white"></i></div>
+                            <div>
+                                <h5 class="fw-bold text-white mb-0 fs-6">PNG to JPG Converter</h5>
+                                <p class="text-secondary-custom fs-8 mb-0">Convert PNG image to JPG online securely inside your browser.[cite: 1]</p>
+                            </div>
+                        </div>
+
+                        <div id="png-drop-zone" class="drop-zone-glass p-4 text-center rounded-4 mb-3 cursor-pointer">
+                            <input type="file" id="png-file-input" accept="image/png" class="d-none">
+                            <i class="bi bi-cloud-arrow-up fs-2 text-gradient mb-2 d-block"></i>
+                            <h6 class="text-white fw-bold mb-1 fs-7">Drop PNG file here or browse</h6>
+                            <p class="text-secondary-custom fs-8 mb-0">Up to 1 file &middot; Max 100MB each &middot; Accepted: PNG[cite: 1]</p>
+                        </div>
+
+                        <div id="png-workspace" class="d-none">
+                            <div class="glass-card p-3 rounded-3 mb-3 text-end">
+                                <button id="reset-png-btn" class="btn btn-glass btn-sm rounded-pill px-3 fs-8">Choose New File</button>
+                            </div>
+
+                            <div class="row g-3 text-center mb-3">
+                                <div class="col-6">
+                                    <div class="glass-card p-2 rounded-3 h-100">
+                                        <span class="badge bg-secondary mb-1 fs-8">Original PNG</span>
+                                        <div class="preview-img-container rounded-3 overflow-hidden mb-2">
+                                            <img id="png-orig-img" src="" alt="Original PNG" class="img-fluid">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="glass-card p-2 rounded-3 h-100">
+                                        <span class="badge bg-success mb-1 fs-8">Converted JPG</span>
+                                        <div class="preview-img-container rounded-3 overflow-hidden mb-2">
+                                            <canvas id="png-jpg-canvas" class="img-fluid rounded"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-center mb-3">
+                                <a id="download-jpg-btn" href="#" download="converted-image.jpg" class="btn btn-gradient btn-sm rounded-pill px-4 shadow-neon fs-7">
+                                    <i class="bi bi-download me-1"></i> Download JPG Image
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: PDF PROCESSING STUDIO -->
+    <section id="pdf-tools-section" class="py-5 border-top border-white-10">
+        <div class="container">
+            <div class="text-center max-w-700 mx-auto mb-4">
+                <span class="badge bg-danger-glow text-white border border-danger px-3 py-1 rounded-pill mb-2 fs-8">100% Client-Side</span>
+                <h2 class="fw-bold text-white fs-3">PDF Processing Studio</h2>
+                <p class="text-secondary-custom fs-7">All the PDF tools that you need in the same website. Private, local browser execution.[cite: 1]</p>
+            </div>
+
+            <ul class="nav nav-pills justify-content-center mb-4 gap-2" id="pdfToolTabs" role="tablist">
+                <li class="nav-item">
+                    <button class="nav-link active btn-glass-filter rounded-pill fs-7" id="jpg-to-pdf-tab" data-bs-toggle="pill" data-bs-target="#pdf-tool-jpg-to-pdf" type="button">
+                        <i class="bi bi-filetype-jpg me-2"></i>JPG to PDF
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link btn-glass-filter rounded-pill fs-7" id="merge-pdf-tab" data-bs-toggle="pill" data-bs-target="#pdf-tool-merge" type="button">
+                        <i class="bi bi-intersect me-2"></i>Merge PDF
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link btn-glass-filter rounded-pill fs-7" id="mhtml-to-pdf-tab" data-bs-toggle="pill" data-bs-target="#pdf-tool-mhtml-to-pdf" type="button">
+                        <i class="bi bi-filetype-html me-2"></i>MHTML & .MHT to PDF
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link btn-glass-filter rounded-pill fs-7" id="protect-pdf-tab" data-bs-toggle="pill" data-bs-target="#pdf-tool-protect" type="button">
+                        <i class="bi bi-lock-fill me-2"></i>Protect PDF
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link btn-glass-filter rounded-pill fs-7" id="metadata-pdf-tab" data-bs-toggle="pill" data-bs-target="#pdf-tool-metadata" type="button">
+                        <i class="bi bi-info-circle-fill me-2"></i>PDF Metadata Viewer
+                    </button>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="pdfToolTabContent">
+
+                <!-- PDF TOOL 1: JPG TO PDF -->
+                <div class="tab-pane fade show active" id="pdf-tool-jpg-to-pdf" role="tabpanel">
+                    <div class="glass-card p-3 p-md-4 rounded-4 border-glow shadow-3d max-w-800 mx-auto">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-shape bg-danger-glow small-icon">
+                                <i class="bi bi-file-earmark-image-fill fs-4 text-white"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold text-white mb-0 fs-6">Convert JPG to PDF</h5>
+                                <p class="text-secondary-custom fs-8 mb-0">Private / Runs in your browser. Files are never uploaded. Convert images into a PDF.[cite: 1]</p>
+                            </div>
+                        </div>
+
+                        <div id="jpg-to-pdf-drop-zone" class="drop-zone-glass p-4 text-center rounded-4 mb-3 cursor-pointer">
+                            <input type="file" id="jpg-to-pdf-file-input" accept="image/jpeg, image/jpg, image/png" multiple class="d-none">
+                            <i class="bi bi-images fs-2 text-gradient mb-2 d-block"></i>
+                            <h6 class="text-white fw-bold mb-1 fs-7">Drop files here or browse</h6>
+                            <p class="text-secondary-custom fs-8 mb-0">Up to 50 files &middot; Max 100MB each &middot; Accepted: JPEG, JPG, PNG[cite: 1]</p>
+                        </div>
+
+                        <div id="jpg-to-pdf-workspace" class="d-none">
+                            <div class="glass-card p-3 rounded-3 mb-3">
+                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                    <span class="text-white fw-bold fs-8"><i class="bi bi-images me-1 text-accent"></i> Selected Images (<span id="jpg-file-count">0</span>)</span>
+                                    <div>
+                                        <button id="add-more-jpg-btn" class="btn btn-glass btn-sm rounded-pill px-3 fs-8 me-1"><i class="bi bi-plus-lg me-1"></i>Add More</button>
+                                        <button id="reset-jpg-btn" class="btn btn-outline-danger btn-sm rounded-pill px-3 fs-8">Clear All</button>
+                                    </div>
+                                </div>
+                                <div id="jpg-file-list" class="d-flex flex-column gap-2"></div>
+                            </div>
+
+                            <div class="text-center mb-3">
+                                <button id="execute-jpg-to-pdf-btn" class="btn btn-gradient btn-sm rounded-pill px-4 shadow-neon fs-7">
+                                    <i class="bi bi-filetype-pdf me-1"></i> Convert to PDF
+                                </button>
+                            </div>
+
+                            <div id="jpg-download-box" class="text-center d-none glass-card p-3 rounded-3 mb-3">
+                                <i class="bi bi-check-circle-fill text-success fs-3 d-block mb-1"></i>
+                                <h6 class="text-white fw-bold fs-7 mb-2">PDF Created Successfully!</h6>
+                                <a id="download-converted-pdf-btn" href="#" download="converted-images.pdf" class="btn btn-success btn-sm rounded-pill px-4 shadow-neon fs-7">
+                                    <i class="bi bi-download me-1"></i> Download PDF File
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- PDF TOOL 2: MERGE PDF -->
+                <div class="tab-pane fade" id="pdf-tool-merge" role="tabpanel">
+                    <div class="glass-card p-3 p-md-4 rounded-4 border-glow shadow-3d max-w-800 mx-auto">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-shape bg-danger-glow small-icon">
+                                <i class="bi bi-file-earmark-pdf-fill fs-4 text-white"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold text-white mb-0 fs-6">Merge PDF Files</h5>
+                                <p class="text-secondary-custom fs-8 mb-0">Easily merge multiple PDFs into one single document.[cite: 1]</p>
+                            </div>
+                        </div>
+
+                        <div id="pdf-merge-drop-zone" class="drop-zone-glass p-4 text-center rounded-4 mb-3 cursor-pointer">
+                            <input type="file" id="pdf-merge-file-input" accept="application/pdf" multiple class="d-none">
+                            <i class="bi bi-file-earmark-plus fs-2 text-gradient mb-2 d-block"></i>
+                            <h6 class="text-white fw-bold mb-1 fs-7">Drop files here or browse</h6>
+                            <p class="text-secondary-custom fs-8 mb-0">Up to 10 files &middot; Max 100MB each &middot; Accepted: PDF[cite: 1]</p>
+                        </div>
+
+                        <div id="pdf-merge-workspace" class="d-none">
+                            <div class="glass-card p-3 rounded-3 mb-3">
+                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                    <span class="text-white fw-bold fs-8"><i class="bi bi-list-task me-1 text-accent"></i> Selected PDFs (<span id="pdf-file-count">0</span>)</span>
+                                    <div>
+                                        <button id="add-more-pdf-btn" class="btn btn-glass btn-sm rounded-pill px-3 fs-8 me-1"><i class="bi bi-plus-lg me-1"></i>Add More</button>
+                                        <button id="reset-pdf-btn" class="btn btn-outline-danger btn-sm rounded-pill px-3 fs-8">Clear All</button>
+                                    </div>
+                                </div>
+                                <div id="pdf-file-list" class="d-flex flex-column gap-2"></div>
+                            </div>
+
+                            <div class="text-center mb-3">
+                                <button id="execute-pdf-merge-btn" class="btn btn-gradient btn-sm rounded-pill px-4 shadow-neon fs-7">
+                                    <i class="bi bi-intersect me-1"></i> Merge & Download PDF
+                                </button>
+                            </div>
+
+                            <div id="pdf-download-box" class="text-center d-none glass-card p-3 rounded-3 mb-3">
+                                <i class="bi bi-check-circle-fill text-success fs-3 d-block mb-1"></i>
+                                <h6 class="text-white fw-bold fs-7 mb-2">PDF Merged Successfully!</h6>
+                                <a id="download-merged-pdf-btn" href="#" download="merged-document.pdf" class="btn btn-success btn-sm rounded-pill px-4 shadow-neon fs-7">
+                                    <i class="bi bi-download me-1"></i> Download Merged PDF
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PDF TOOL 3: CONVERT .MHTML & .MHT FILES TO PDF -->
+                <div class="tab-pane fade" id="pdf-tool-mhtml-to-pdf" role="tabpanel">
+                    <div class="glass-card p-3 p-md-4 rounded-4 border-glow shadow-3d max-w-800 mx-auto">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-shape bg-danger-glow small-icon">
+                                <i class="bi bi-filetype-mhtml fs-4 text-white"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold text-white mb-0 fs-6">Convert .mhtml & .mht Files to PDF</h5>
+                                <p class="text-secondary-custom fs-8 mb-0">Private / Runs in your browser. Files are never uploaded. Upload your .mhtml or .mht file, preview it in the browser, and save it as a PDF using the print dialog. Everything runs locally.[cite: 1]</p>
+                            </div>
+                        </div>
+
+                        <div id="mhtml-drop-zone" class="drop-zone-glass p-4 text-center rounded-4 mb-3 cursor-pointer">
+                            <input type="file" id="mhtml-file-input" accept=".mhtml,.mht,message/rfc822,multipart/related" class="d-none">
+                            <i class="bi bi-file-earmark-arrow-up fs-2 text-gradient mb-2 d-block"></i>
+                            <h6 class="text-white fw-bold mb-1 fs-7">Drop files here or browse</h6>
+                            <p class="text-secondary-custom fs-8 mb-0">Up to 1 files &middot; Max 50MB each &middot; Accepted: MHTML, MHT, RFC822, RELATED[cite: 1]</p>
+                        </div>
+
+                        <div id="mhtml-workspace" class="d-none">
+                            <div class="glass-card p-3 rounded-3 mb-3">
+                                <div class="d-flex align-items-center justify-content-between border-bottom border-white-10 pb-2 mb-3">
+                                    <div class="d-flex align-items-center gap-2 overflow-hidden">
+                                        <i class="bi bi-file-earmark-code text-danger fs-5"></i>
+                                        <div class="text-truncate">
+                                            <div id="mhtml-filename" class="text-white fw-bold fs-8 text-truncate">file.mhtml</div>
+                                            <span id="mhtml-filesize" class="text-secondary-custom fs-8">0 MB</span>
+                                        </div>
+                                    </div>
+                                    <button id="reset-mhtml-btn" class="btn btn-glass btn-sm rounded-pill px-3 fs-8">Choose New File</button>
+                                </div>
+
+                                <div class="bg-white rounded-3 overflow-hidden p-1 shadow-inner mb-3">
+                                    <iframe id="mhtml-preview-frame" style="width: 100%; height: 420px; border: none; border-radius: 6px; background-color: white;"></iframe>
+                                </div>
+                            </div>
+
+                            <div class="text-center mb-3">
+                                <button id="print-mhtml-btn" class="btn btn-gradient btn-sm rounded-pill px-4 shadow-neon fs-7">
+                                    <i class="bi bi-printer me-1"></i> Save as PDF (Print Dialog)
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Simple Process / Tutorial Section -->
+                        <div class="mt-4 pt-3 border-top border-white-10">
+                            <h6 class="text-white fw-bold fs-7 mb-2">Simple Process</h6>
+                            <p class="text-secondary-custom fs-8 fw-semibold mb-3">How to convert .mhtml & .mht files to PDF ?[cite: 1]</p>
+                            <p class="text-secondary-custom fs-8 mb-3">Follow these simple steps to convert your .mhtml or .mht files to PDF.[cite: 1]</p>
+
+                            <div class="row g-3 text-start">
+                                <div class="col-md-4">
+                                    <div class="glass-card p-3 rounded-3 h-100">
+                                        <div class="text-accent fw-bold fs-5 mb-1">01</div>
+                                        <h6 class="text-white fw-bold fs-8 mb-1">Upload your .mhtml or .mht file</h6>
+                                        <p class="text-secondary-custom fs-8 mb-0">Select the .mhtml or .mht archive saved from your browser.[cite: 1]</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="glass-card p-3 rounded-3 h-100">
+                                        <div class="text-accent fw-bold fs-5 mb-1">02</div>
+                                        <h6 class="text-white fw-bold fs-8 mb-1">Check the preview</h6>
+                                        <p class="text-secondary-custom fs-8 mb-0">Review the reconstructed page and make sure the layout looks correct.[cite: 1]</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="glass-card p-3 rounded-3 h-100">
+                                        <div class="text-accent fw-bold fs-5 mb-1">03</div>
+                                        <h6 class="text-white fw-bold fs-8 mb-1">Save as PDF</h6>
+                                        <p class="text-secondary-custom fs-8 mb-0">Open the print dialog and choose Save as PDF as the destination.[cite: 1]</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- PDF TOOL 4: PROTECT PDF -->
+                <div class="tab-pane fade" id="pdf-tool-protect" role="tabpanel">
+                    <div class="glass-card p-3 p-md-4 rounded-4 border-glow shadow-3d max-w-800 mx-auto">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-shape bg-danger-glow small-icon">
+                                <i class="bi bi-shield-lock-fill fs-4 text-white"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold text-white mb-0 fs-6">Protect PDF File</h5>
+                                <p class="text-secondary-custom fs-8 mb-0">Easily protect a PDF file with password encryption directly in your browser.[cite: 1]</p>
+                            </div>
+                        </div>
+
+                        <div id="pdf-protect-drop-zone" class="drop-zone-glass p-4 text-center rounded-4 mb-3 cursor-pointer">
+                            <input type="file" id="pdf-protect-file-input" accept="application/pdf" class="d-none">
+                            <i class="bi bi-file-earmark-lock fs-2 text-gradient mb-2 d-block"></i>
+                            <h6 class="text-white fw-bold mb-1 fs-7">Drop file here or browse</h6>
+                            <p class="text-secondary-custom fs-8 mb-0">Up to 1 file &middot; Max 100MB each &middot; Accepted: PDF[cite: 1]</p>
+                        </div>
+
+                        <div id="pdf-protect-workspace" class="d-none">
+                            <div class="glass-card p-3 rounded-3 mb-3">
+                                <div class="d-flex align-items-center justify-content-between mb-3">
+                                    <div class="d-flex align-items-center gap-2 overflow-hidden">
+                                        <i class="bi bi-file-earmark-pdf text-danger fs-5"></i>
+                                        <div class="text-truncate">
+                                            <div id="pdf-protect-filename" class="text-white fw-bold fs-8 text-truncate">document.pdf</div>
+                                            <span id="pdf-protect-filesize" class="text-secondary-custom fs-8">0 MB</span>
+                                        </div>
+                                    </div>
+                                    <button id="reset-pdf-protect-btn" class="btn btn-glass btn-sm rounded-pill px-3 fs-8">Choose New File</button>
+                                </div>
+
+                                <div class="mb-2">
+                                    <label for="pdf-password-input" class="form-label text-white fw-bold fs-8 mb-1">Set PDF Password</label>
+                                    <div class="input-group input-group-sm">
+                                        <input type="password" id="pdf-password-input" class="form-control bg-dark text-light border-secondary fs-8" placeholder="Enter strong password">
+                                        <button class="btn btn-outline-secondary text-white-50" type="button" id="toggle-pdf-pass-btn"><i class="bi bi-eye"></i></button>
+                                    </div>
+                                    <span id="pdf-pass-error" class="text-danger fs-8 d-none mt-1 d-block">Please enter a password!</span>
+                                </div>
+                            </div>
+
+                            <div class="text-center mb-3">
+                                <button id="execute-pdf-protect-btn" class="btn btn-gradient btn-sm rounded-pill px-4 shadow-neon fs-7">
+                                    <i class="bi bi-shield-lock me-1"></i> Encrypt & Download PDF
+                                </button>
+                            </div>
+
+                            <div id="pdf-protect-download-box" class="text-center d-none glass-card p-3 rounded-3 mb-3">
+                                <i class="bi bi-check-circle-fill text-success fs-3 d-block mb-1"></i>
+                                <h6 class="text-white fw-bold fs-7 mb-2">PDF Protected Successfully!</h6>
+                                <a id="download-protected-pdf-btn" href="#" download="protected-document.pdf" class="btn btn-success btn-sm rounded-pill px-4 shadow-neon fs-7">
+                                    <i class="bi bi-download me-1"></i> Download Protected PDF
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PDF TOOL 5: PDF METADATA VIEWER -->
+                <div class="tab-pane fade" id="pdf-tool-metadata" role="tabpanel">
+                    <div class="glass-card p-3 p-md-4 rounded-4 border-glow shadow-3d max-w-800 mx-auto">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-shape bg-danger-glow small-icon">
+                                <i class="bi bi-info-circle-fill fs-4 text-white"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold text-white mb-0 fs-6">Pdf Metadata Viewer</h5>
+                                <p class="text-secondary-custom fs-8 mb-0">Private/Runs in your browser. Files are never uploaded. Easily preview a pdf's metadata online.</p>
+                            </div>
+                        </div>
+
+                        <div id="pdf-metadata-drop-zone" class="drop-zone-glass p-4 text-center rounded-4 mb-3 cursor-pointer">
+                            <input type="file" id="pdf-metadata-file-input" accept="application/pdf" class="d-none">
+                            <i class="bi bi-file-earmark-code fs-2 text-gradient mb-2 d-block"></i>
+                            <h6 class="text-white fw-bold mb-1 fs-7">Drop files here or browse</h6>
+                            <p class="text-secondary-custom fs-8 mb-0">Up to 1 files &middot; Max 100MB each &middot; Accepted: PDF</p>
+                        </div>
+
+                        <div id="pdf-metadata-workspace" class="d-none">
+                            <div class="glass-card p-3 rounded-3 mb-3">
+                                <div class="d-flex align-items-center justify-content-between border-bottom border-white-10 pb-2 mb-3">
+                                    <div class="d-flex align-items-center gap-2 overflow-hidden">
+                                        <i class="bi bi-file-earmark-pdf text-danger fs-5"></i>
+                                        <div class="text-truncate">
+                                            <div id="pdf-metadata-filename" class="text-white fw-bold fs-8 text-truncate">document.pdf</div>
+                                            <span id="pdf-metadata-filesize" class="text-secondary-custom fs-8">0 MB</span>
+                                        </div>
+                                    </div>
+                                    <button id="reset-pdf-metadata-btn" class="btn btn-glass btn-sm rounded-pill px-3 fs-8">Choose New File</button>
+                                </div>
+
+                                <div class="table-responsive">
+                                    <table class="table table-dark table-striped align-middle fs-8 mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" style="width: 35%;">Property</th>
+                                                <th scope="col" style="width: 65%;">Value</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="pdf-metadata-table-body">
+                                            <!-- Dynamically populated metadata rows -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-center gap-2 mb-3">
+                                <button id="copy-metadata-btn" class="btn btn-glass btn-sm rounded-pill px-4 fs-7">
+                                    <i class="bi bi-copy me-1"></i> Copy Details
+                                </button>
+                                <button id="export-metadata-btn" class="btn btn-gradient btn-sm rounded-pill px-4 shadow-neon fs-7">
+                                    <i class="bi bi-download me-1"></i> Export JSON
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Simple Process / Tutorial Section -->
+                        <div class="mt-4 pt-3 border-top border-white-10">
+                            <h6 class="text-white fw-bold fs-7 mb-2">Simple Process</h6>
+                            <p class="text-secondary-custom fs-8 fw-semibold mb-3">How to view a pdf's metadata online ?</p>
+                            <p class="text-secondary-custom fs-8 mb-3">Just follow this simple & easy steps in order to use the pdf metadata viewer.</p>
+
+                            <div class="row g-3 text-start">
+                                <div class="col-md-4">
+                                    <div class="glass-card p-3 rounded-3 h-100">
+                                        <div class="text-accent fw-bold fs-5 mb-1">01</div>
+                                        <h6 class="text-white fw-bold fs-8 mb-1">Upload your pdf file</h6>
+                                        <p class="text-secondary-custom fs-8 mb-0">Select a pdf from your computer / phone.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="glass-card p-3 rounded-3 h-100">
+                                        <div class="text-accent fw-bold fs-5 mb-1">02</div>
+                                        <h6 class="text-white fw-bold fs-8 mb-1">View the metadata</h6>
+                                        <p class="text-secondary-custom fs-8 mb-0">Browse all the metadata information of your pdf file.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="glass-card p-3 rounded-3 h-100">
+                                        <div class="text-accent fw-bold fs-5 mb-1">03</div>
+                                        <h6 class="text-white fw-bold fs-8 mb-1">Copy or export</h6>
+                                        <p class="text-secondary-custom fs-8 mb-0">Copy the metadata details or export them as needed.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: SOCIAL MEDIA TOOLS -->
+    <section id="social-tools-section" class="py-5 border-top border-white-10">
+        <div class="container">
+            <div class="text-center max-w-700 mx-auto mb-4">
+                <span class="badge bg-warning-glow text-white border border-warning px-3 py-1 rounded-pill mb-2 fs-8">Social Media Tools</span>
+                <h2 class="fw-bold text-white fs-3">Social Media Studio</h2>
+                <p class="text-secondary-custom fs-7">All the Social Media tools that you need in the same website.[cite: 1]</p>
+            </div>
+
+            <ul class="nav nav-pills justify-content-center mb-4 gap-2" id="socialToolTabs" role="tablist">
+                <li class="nav-item">
+                    <button class="nav-link active btn-glass-filter rounded-pill fs-7" id="tweet-gen-tab" data-bs-toggle="pill" data-bs-target="#tool-tweet-gen" type="button">
+                        <i class="bi bi-twitter-x me-2"></i>Fake Tweet Generator
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link btn-glass-filter rounded-pill fs-7" id="insta-post-tab" data-bs-toggle="pill" data-bs-target="#tool-insta-post" type="button">
+                        <i class="bi bi-instagram me-2"></i>Instagram Post Generator
+                    </button>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="socialToolTabContent">
+                
+                <!-- TOOL 1: FAKE TWEET GENERATOR -->
+                <div class="tab-pane fade show active" id="tool-tweet-gen" role="tabpanel">
+                    <div class="glass-card p-3 p-md-4 rounded-4 border-glow shadow-3d max-w-800 mx-auto">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-shape bg-warning-glow small-icon"><i class="bi bi-twitter-x fs-4 text-white"></i></div>
+                            <div>
+                                <h5 class="fw-bold text-white mb-0 fs-6">Fake Tweet Generator</h5>
+                                <p class="text-secondary-custom fs-8 mb-0">Private/Runs in your browser. Files are never uploaded. Generate fake tweets easily.[cite: 1]</p>
+                            </div>
+                        </div>
+
+                        <div class="row g-4 mb-4">
+                            <div class="col-lg-6">
+                                <div class="glass-card p-3 rounded-4 h-100">
+                                    <div class="d-flex justify-content-between align-items-center mb-3 border-bottom border-white-10 pb-2">
+                                        <h6 class="text-white fw-bold fs-7 mb-0">Customize Tweet Details</h6>
+                                        <button id="tweet-randomize-btn" class="btn btn-outline-warning btn-sm rounded-pill fs-8"><i class="bi bi-shuffle me-1"></i>Randomize Stats</button>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label class="form-label text-secondary-custom fs-8 mb-1">Upload Profile Picture</label>
+                                        <input type="file" id="tweet-input-avatar" accept="image/*" class="form-control form-control-sm bg-dark text-light border-secondary fs-8">
+                                    </div>
+
+                                    <div class="row g-2 mb-3">
+                                        <div class="col-6">
+                                            <label class="form-label text-secondary-custom fs-8 mb-1">Name</label>
+                                            <input type="text" id="tweet-input-name" value="AllinoneTools" class="form-control form-control-sm bg-dark text-light border-secondary fs-8">
+                                        </div>
+                                        <div class="col-6">
+                                            <label class="form-label text-secondary-custom fs-8 mb-1">Username (@handle)</label>
+                                            <input type="text" id="tweet-input-username" value="allinone.tools" class="form-control form-control-sm bg-dark text-light border-secondary fs-8">
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="tweet-input-verified" checked>
+                                            <label class="form-check-label text-secondary-custom fs-8" for="tweet-input-verified">Verified Badge</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label text-secondary-custom fs-8 mb-1">Tweet Text</label>
+                                        <textarea id="tweet-input-content" rows="3" class="form-control form-control-sm bg-dark text-light border-secondary fs-8">@AllinoneTools - a single destination for all your needs! You can do anything from #social media to #encryption, and more using just a single #tool.</textarea>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label text-secondary-custom fs-8 mb-1">Upload Tweet Image (Optional)</label>
+                                        <input type="file" id="tweet-input-post-img" accept="image/*" class="form-control form-control-sm bg-dark text-light border-secondary fs-8">
+                                    </div>
+
+                                    <div class="row g-2 mb-3">
+                                        <div class="col-6">
+                                            <label class="form-label text-secondary-custom fs-8 mb-1">Time & Date</label>
+                                            <input type="text" id="tweet-input-time" value="4:00 AM · Feb 21, 2022" class="form-control form-control-sm bg-dark text-light border-secondary fs-8">
+                                        </div>
+                                        <div class="col-6">
+                                            <label class="form-label text-secondary-custom fs-8 mb-1">Client App</label>
+                                            <input type="text" id="tweet-input-client" value="Twitter Web App" class="form-control form-control-sm bg-dark text-light border-secondary fs-8">
+                                        </div>
+                                    </div>
+
+                                    <div class="row g-2 mb-3">
+                                        <div class="col-4">
+                                            <label class="form-label text-secondary-custom fs-8 mb-1">Retweets</label>
+                                            <input type="text" id="tweet-input-retweets" value="1,240" class="form-control form-control-sm bg-dark text-light border-secondary fs-8">
+                                        </div>
+                                        <div class="col-4">
+                                            <label class="form-label text-secondary-custom fs-8 mb-1">Quotes</label>
+                                            <input type="text" id="tweet-input-quotes" value="382" class="form-control form-control-sm bg-dark text-light border-secondary fs-8">
+                                        </div>
+                                        <div class="col-4">
+                                            <label class="form-label text-secondary-custom fs-8 mb-1">Likes</label>
+                                            <input type="text" id="tweet-input-likes" value="8,920" class="form-control form-control-sm bg-dark text-light border-secondary fs-8">
+                                        </div>
+                                    </div>
+
+                                    <div class="text-center pt-2">
+                                        <button id="download-tweet-btn" class="btn btn-gradient btn-sm rounded-pill px-4 shadow-neon fs-7 w-100">
+                                            <i class="bi bi-download me-1"></i> Download Tweet
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 d-flex justify-content-center align-items-start">
+                                <div id="tweet-container" class="tweet-card bg-black text-white p-3 rounded-3 border border-secondary border-opacity-25 w-100 max-w-400 font-sans">
+                                    <div class="d-flex align-items-center justify-content-between mb-2">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <img id="tweet-preview-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" class="rounded-circle object-fit-cover" width="44" height="44" alt="Avatar">
+                                            <div class="lh-sm">
+                                                <div class="d-flex align-items-center gap-1">
+                                                    <span id="tweet-preview-name" class="fw-bold fs-7 text-white">AllinoneTools</span>
+                                                    <i id="tweet-preview-verified" class="bi bi-patch-check-fill text-primary fs-8"></i>
+                                                </div>
+                                                <div id="tweet-preview-username" class="text-muted fs-8">@allinone.tools</div>
+                                            </div>
+                                        </div>
+                                        <i class="bi bi-three-dots text-muted fs-6"></i>
+                                    </div>
+
+                                    <div id="tweet-preview-content" class="fs-7 text-white mb-2 text-break lh-md">
+                                        @AllinoneTools - a single destination for all your needs! You can do anything from #social media to #encryption, and more using just a single #tool.
+                                    </div>
+
+                                    <div id="tweet-preview-img-container" class="mb-2 rounded-3 overflow-hidden border border-secondary border-opacity-25 d-none">
+                                        <img id="tweet-preview-post-img" src="" class="w-100 d-block object-fit-cover" alt="Tweet Attached Image">
+                                    </div>
+
+                                    <div class="py-2 border-bottom border-secondary border-opacity-25 text-muted fs-8">
+                                        <span id="tweet-preview-time">4:00 AM · Feb 21, 2022</span> · <span id="tweet-preview-client" class="text-white">Twitter Web App</span>
+                                    </div>
+
+                                    <div id="tweet-preview-stats" class="py-2 border-bottom border-secondary border-opacity-25 d-flex gap-3 fs-8">
+                                        <div><strong id="tweet-preview-retweets" class="text-white">1,240</strong> <span class="text-muted">Retweets</span></div>
+                                        <div><strong id="tweet-preview-quotes" class="text-white">382</strong> <span class="text-muted">Quote Tweets</span></div>
+                                        <div><strong id="tweet-preview-likes" class="text-white">8,920</strong> <span class="text-muted">Likes</span></div>
+                                    </div>
+
+                                    <div class="d-flex justify-content-around text-muted fs-6 pt-2">
+                                        <i class="bi bi-chat"></i>
+                                        <i class="bi bi-arrow-repeat"></i>
+                                        <i class="bi bi-heart"></i>
+                                        <i class="bi bi-bookmark"></i>
+                                        <i class="bi bi-upload"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 pt-3 border-top border-white-10">
+                            <h6 class="text-white fw-bold fs-7 mb-2">Fake Tweet Generator</h6>
+                            <p class="text-secondary-custom fs-8 mb-3">Fake Tweet generator is a tool that allows you to easily generate believable fake tweets and download them as images.[cite: 1]</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOOL 2: INSTAGRAM POST GENERATOR -->
+                <div class="tab-pane fade" id="tool-insta-post" role="tabpanel">
+                    <div class="glass-card p-3 p-md-4 rounded-4 border-glow shadow-3d max-w-800 mx-auto">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-shape bg-warning-glow small-icon"><i class="bi bi-instagram fs-4 text-white"></i></div>
+                            <div>
+                                <h5 class="fw-bold text-white mb-0 fs-6">Instagram Post Generator</h5>
+                                <p class="text-secondary-custom fs-8 mb-0">Private/Runs in your browser. Files are never uploaded. Easily create a fake instagram post.[cite: 1]</p>
+                            </div>
+                        </div>
+
+                        <div class="row g-4 mb-4">
+                            <div class="col-lg-6">
+                                <div class="glass-card p-3 rounded-4 h-100">
+                                    <h6 class="text-white fw-bold fs-7 mb-3 border-bottom border-white-10 pb-2">Customize Post Details</h6>
+                                    
+                                    <div class="mb-3">
+                                        <label class="form-label text-secondary-custom fs-8 mb-1">Upload Profile Picture</label>
+                                        <input type="file" id="ig-input-avatar" accept="image/*" class="form-control form-control-sm bg-dark text-light border-secondary fs-8">
+                                    </div>
+
+                                    <div class="row g-2 mb-3">
+                                        <div class="col-7">
+                                            <label class="form-label text-secondary-custom fs-8 mb-1">Username</label>
+                                            <input type="text" id="ig-input-username" value="AllinoneTools" class="form-control form-control-sm bg-dark text-light border-secondary fs-8">
+                                        </div>
+                                        <div class="col-5 d-flex align-items-end mb-1">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="ig-input-verified" checked>
+                                                <label class="form-check-label text-secondary-custom fs-8" for="ig-input-verified">Verified Badge</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label text-secondary-custom fs-8 mb-1">Location</label>
+                                        <input type="text" id="ig-input-location" value="The Cloud" class="form-control form-control-sm bg-dark text-light border-secondary fs-8">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label text-secondary-custom fs-8 mb-1">Upload Post Image</label>
+                                        <input type="file" id="ig-input-post-img" accept="image/*" class="form-control form-control-sm bg-dark text-light border-secondary fs-8">
+                                    </div>
+
+                                    <div class="row g-2 mb-3">
+                                        <div class="col-7">
+                                            <label class="form-label text-secondary-custom fs-8 mb-1">Likes Count</label>
+                                            <input type="text" id="ig-input-likes" value="24,543" class="form-control form-control-sm bg-dark text-light border-secondary fs-8">
+                                        </div>
+                                        <div class="col-5 d-flex align-items-end mb-1">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="ig-input-liked" checked>
+                                                <label class="form-check-label text-secondary-custom fs-8" for="ig-input-liked">Liked Post</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label text-secondary-custom fs-8 mb-1">Description</label>
+                                        <textarea id="ig-input-caption" rows="2" class="form-control form-control-sm bg-dark text-light border-secondary fs-8">First Prep episode dropping tomorrow Prep episode dropping tomorrow #help</textarea>
+                                        <div class="form-check form-switch mt-2">
+                                            <input class="form-check-input" type="checkbox" id="ig-input-show-more" checked>
+                                            <label class="form-check-label text-secondary-custom fs-8" for="ig-input-show-more">Show 'more' in desc</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="row g-2 mb-3">
+                                        <div class="col-6">
+                                            <label class="form-label text-secondary-custom fs-8 mb-1">Comments Text</label>
+                                            <input type="text" id="ig-input-comments" value="View all 288 comments" class="form-control form-control-sm bg-dark text-light border-secondary fs-8">
+                                        </div>
+                                        <div class="col-6 d-flex align-items-end mb-1">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="ig-input-show-comment-bar" checked>
+                                                <label class="form-check-label text-secondary-custom fs-8" for="ig-input-show-comment-bar">Add Comment Input</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label class="form-label text-secondary-custom fs-8 mb-1">Time Ago</label>
+                                        <input type="text" id="ig-input-time" value="1 day ago" class="form-control form-control-sm bg-dark text-light border-secondary fs-8">
+                                    </div>
+
+                                    <div class="text-center pt-2">
+                                        <button id="download-ig-post-btn" class="btn btn-gradient btn-sm rounded-pill px-4 shadow-neon fs-7 w-100">
+                                            <i class="bi bi-download me-1"></i> Download Post
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 d-flex justify-content-center align-items-start">
+                                <div id="ig-post-container" class="ig-card bg-white text-dark rounded-3 overflow-hidden shadow w-100 max-w-400">
+                                    <div class="d-flex align-items-center justify-content-between p-2 border-bottom">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <img id="ig-preview-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" class="rounded-circle object-fit-cover" width="32" height="32" alt="Avatar">
+                                            <div class="lh-1">
+                                                <div class="d-flex align-items-center gap-1">
+                                                    <span id="ig-preview-username" class="fw-bold fs-8 text-dark">AllinoneTools</span>
+                                                    <i id="ig-preview-verified" class="bi bi-patch-check-fill text-primary fs-8"></i>
+                                                </div>
+                                                <small id="ig-preview-location" class="text-muted fs-9 d-block mt-1">The Cloud</small>
+                                            </div>
+                                        </div>
+                                        <i class="bi bi-three-dots text-dark fs-6 cursor-pointer me-1"></i>
+                                    </div>
+
+                                    <div class="ig-image-holder bg-light text-center">
+                                        <img id="ig-preview-post-img" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80" class="w-100 d-block object-fit-cover" alt="Post Image">
+                                    </div>
+
+                                    <div class="p-2 pb-1">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <div class="d-flex align-items-center gap-3 fs-5">
+                                                <i id="ig-preview-heart" class="bi bi-heart-fill text-danger"></i>
+                                                <i class="bi bi-chat text-dark"></i>
+                                                <i class="bi bi-send text-dark"></i>
+                                            </div>
+                                            <i class="bi bi-bookmark text-dark fs-5"></i>
+                                        </div>
+                                        
+                                        <div class="fw-bold fs-8 text-dark"><span id="ig-preview-likes">24,543</span> likes</div>
+                                        
+                                        <div class="fs-8 text-dark mt-1 lh-sm">
+                                            <span id="ig-preview-cap-user" class="fw-bold me-1">AllinoneTools</span>
+                                            <span id="ig-preview-caption-text">First Prep episode dropping tomorrow Prep episode dropping tomorrow #help</span>
+                                            <span id="ig-preview-more-btn" class="text-muted cursor-pointer ms-1">... more</span>
+                                        </div>
+
+                                        <div id="ig-preview-comments" class="text-muted fs-8 mt-1 cursor-pointer">View all 288 comments</div>
+                                        <div id="ig-preview-time" class="text-uppercase text-muted fs-9 mt-1">1 DAY AGO</div>
+                                    </div>
+
+                                    <div id="ig-preview-comment-bar" class="border-top p-2 d-flex align-items-center justify-content-between text-muted fs-8">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <i class="bi bi-emoji-smile fs-6"></i>
+                                            <span>Add a comment...</span>
+                                        </div>
+                                        <span class="text-primary opacity-50 fw-semibold">Post</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: TEXT & LISTS -->
+    <section id="text-tools-section" class="py-5 border-top border-white-10">
+        <div class="container">
+            <div class="text-center max-w-700 mx-auto mb-4">
+                <span class="badge bg-info-glow text-white border border-info px-3 py-1 rounded-pill mb-2 fs-8">Text & Lists Tools</span>
+                <h2 class="fw-bold text-white fs-3">Text & Lists Studio</h2>
+                <p class="text-secondary-custom fs-7">All the Text & Lists tools that you need in the same website.[cite: 1]</p>
+            </div>
+
+            <!-- Tab Switcher for Text Tools -->
+            <ul class="nav nav-pills justify-content-center mb-4 gap-2" id="textToolTabs" role="tablist">
+                <li class="nav-item">
+                    <button class="nav-link active btn-glass-filter rounded-pill fs-7" id="text-binary-tab" data-bs-toggle="pill" data-bs-target="#tool-text-binary" type="button">
+                        <i class="bi bi-binary me-2"></i>Text to Binary
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link btn-glass-filter rounded-pill fs-7" id="ip-binary-tab" data-bs-toggle="pill" data-bs-target="#tool-ip-binary" type="button">
+                        <i class="bi bi-router me-2"></i>IP to Binary
+                    </button>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="textToolTabContent">
+                
+                <!-- TOOL 1: TEXT TO BINARY -->
+                <div class="tab-pane fade show active" id="tool-text-binary" role="tabpanel">
+                    <div class="glass-card p-3 p-md-4 rounded-4 border-glow shadow-3d max-w-800 mx-auto">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-shape bg-info-glow small-icon">
+                                <i class="bi bi-binary fs-4 text-white"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold text-white mb-0 fs-6">Text to Binary</h5>
+                                <p class="text-secondary-custom fs-8 mb-0">Private/Runs in your browser. Files are never uploaded. Convert your text into binary representation instantly.[cite: 1]</p>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-3 rounded-4 mb-4">
+                            <div class="row g-3">
+                                <!-- Raw Text Area -->
+                                <div class="col-md-5">
+                                    <label for="raw-text-input" class="form-label text-white fw-bold fs-8 mb-1">Raw Text</label>
+                                    <textarea id="raw-text-input" class="form-control bg-dark text-light border-secondary fs-8 font-monospace" rows="6" placeholder="Type or paste your text here..."></textarea>
+                                </div>
+
+                                <!-- Direction Arrow Indicator -->
+                                <div class="col-md-2 d-flex align-items-center justify-content-center">
+                                    <div class="text-center text-accent fs-3 d-none d-md-block">
+                                        <i class="bi bi-arrow-right-circle-fill"></i>
+                                    </div>
+                                    <div class="text-center text-accent fs-3 d-block d-md-none py-2">
+                                        <i class="bi bi-arrow-down-circle-fill"></i>
+                                    </div>
+                                </div>
+
+                                <!-- Binary Output Area -->
+                                <div class="col-md-5">
+                                    <label for="binary-output-text" class="form-label text-white fw-bold fs-8 mb-1">Binary Output</label>
+                                    <textarea id="binary-output-text" class="form-control bg-dark text-light border-secondary fs-8 font-monospace" readonly placeholder="Binary code output..."></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Action Control Buttons -->
+                            <div class="d-flex justify-content-end gap-2 mt-3 pt-3 border-top border-white-10">
+                                <button id="reset-binary-btn" class="btn btn-glass btn-sm rounded-pill px-3 fs-8">Reset</button>
+                                <button id="copy-binary-btn" class="btn btn-gradient btn-sm rounded-pill px-4 shadow-neon fs-8"><i class="bi bi-copy me-1"></i>Copy Binary</button>
+                            </div>
+                        </div>
+
+                        <!-- Tool Educational Description -->
+                        <div class="mt-4 pt-3 border-top border-white-10">
+                            <h6 class="text-white fw-bold fs-7 mb-2">About Text to Binary</h6>
+                            <p class="text-secondary-custom fs-8 mb-0">
+                                Binary code is a two-symbol system used often to encode a string of textual data. Using an 8-bit binary system, each letter or character represents an 8-bit combination of 0s and 1s. This free online tool instantly converts your standard text into its corresponding binary format for educational, programming, or cryptography purposes.[cite: 1]
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TOOL 2: IP TO BINARY -->
+                <div class="tab-pane fade" id="tool-ip-binary" role="tabpanel">
+                    <div class="glass-card p-3 p-md-4 rounded-4 border-glow shadow-3d max-w-800 mx-auto">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-shape bg-info-glow small-icon">
+                                <i class="bi bi-router fs-4 text-white"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold text-white mb-0 fs-6">IP to Binary Converter</h5>
+                                <p class="text-secondary-custom fs-8 mb-0">Private/Runs in your browser. Files are never uploaded. Easily convert IP addresses to binary format.[cite: 1]</p>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-3 rounded-4 mb-4">
+                            <div class="row g-3">
+                                <!-- Raw IP Input Area -->
+                                <div class="col-md-5">
+                                    <label for="ip-input-text" class="form-label text-white fw-bold fs-8 mb-1">Enter IP Address(es)</label>
+                                    <textarea id="ip-input-text" class="form-control bg-dark text-light border-secondary fs-8 font-monospace" rows="6" placeholder="192.168.1.1&#10;10.0.0.1&#10;172.16.254.1"></textarea>
+                                </div>
+
+                                <!-- Direction Arrow Indicator -->
+                                <div class="col-md-2 d-flex align-items-center justify-content-center">
+                                    <div class="text-center text-accent fs-3 d-none d-md-block">
+                                        <i class="bi bi-arrow-right-circle-fill"></i>
+                                    </div>
+                                    <div class="text-center text-accent fs-3 d-block d-md-none py-2">
+                                        <i class="bi bi-arrow-down-circle-fill"></i>
+                                    </div>
+                                </div>
+
+                                <!-- Binary Output Area -->
+                                <div class="col-md-5">
+                                    <label for="ip-output-text" class="form-label text-white fw-bold fs-8 mb-1">Binary Format Output</label>
+                                    <textarea id="ip-output-text" class="form-control bg-dark text-light border-secondary fs-8 font-monospace" readonly placeholder="Binary IP output..."></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Action Control Buttons -->
+                            <div class="d-flex justify-content-end gap-2 mt-3 pt-3 border-top border-white-10">
+                                <button id="convert-ip-btn" class="btn btn-gradient btn-sm rounded-pill px-4 shadow-neon fs-8"><i class="bi bi-gear-fill me-1"></i>Convert IPs</button>
+                                <button id="copy-ip-btn" class="btn btn-glass btn-sm rounded-pill px-3 fs-8"><i class="bi bi-copy me-1"></i>Copy</button>
+                                <button id="reset-ip-btn" class="btn btn-glass btn-sm rounded-pill px-3 fs-8">Reset</button>
+                            </div>
+                        </div>
+
+                        <!-- Simple Process / Tutorial Section -->
+                        <div class="mt-4 pt-3 border-top border-white-10">
+                            <h6 class="text-white fw-bold fs-7 mb-2">Simple Process</h6>
+                            <p class="text-secondary-custom fs-8 fw-semibold mb-3">How to convert IP addresses to binary format?</p>
+                            <p class="text-secondary-custom fs-8 mb-3">Just follow these simple & easy steps in order to convert IP addresses to binary format:</p>
+
+                            <div class="row g-3 text-start">
+                                <div class="col-md-6">
+                                    <div class="glass-card p-3 rounded-3 h-100">
+                                        <div class="text-accent fw-bold fs-5 mb-1">01</div>
+                                        <h6 class="text-white fw-bold fs-8 mb-1">Enter the IP</h6>
+                                        <p class="text-secondary-custom fs-8 mb-0">Enter the IP address (or multiple IPs separated by new lines) you want to convert to binary.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="glass-card p-3 rounded-3 h-100">
+                                        <div class="text-accent fw-bold fs-5 mb-1">02</div>
+                                        <h6 class="text-white fw-bold fs-8 mb-1">Click Convert IPs</h6>
+                                        <p class="text-secondary-custom fs-8 mb-0">Click Convert IPs, and you can now copy your converted IP addresses in binary format.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-3 border-top border-white-10">
+        <div class="container text-center text-white-50 fs-8">
+            &copy; 2026 OmniTool Suite. Client-Side Image, PDF, Social & Text Web Utilities.
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5.3 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
