@@ -35,41 +35,104 @@
     <!-- Canvas Background Particle System -->
     <canvas id="aurora-canvas"></canvas>
 
-    <!-- Top Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top glass-nav px-3 px-lg-5" id="main-navbar">
-        <div class="container-fluid">
-            <a class="navbar-brand d-flex align-items-center gap-2 fw-bold text-white fs-5" href="#hero">
-                <div class="brand-logo-3d">
-                    <i class="bi bi-box-seam-fill text-gradient"></i>
-                </div>
-                <span>Web-Tools-<span class="text-accent">HUB</span></span>
-            </a>
-            
-            <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                <i class="bi bi-list fs-2"></i>
-            </button>
+   <!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg glass-nav fixed-top navbar-dark">
+    <div class="container-fluid px-4">
+        <!-- Brand Logo / Title -->
+        <a class="navbar-brand fw-bold text-gradient fs-4" href="index.html">
+            <i class="bi bi-tools me-2"></i>OmniTool
+        </a>
 
-            <div class="offcanvas offcanvas-end glass-offcanvas text-bg-dark" tabindex="-1" id="offcanvasNavbar">
-                <div class="offcanvas-header border-bottom border-white-10">
-                    <h5 class="offcanvas-title text-white">Navigation</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body align-items-center justify-content-between">
-                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-3 text-center text-lg-start">
-                        <li class="nav-item"><a class="nav-link text-white active" href="#hero">Home</a></li>
-                        <li class="nav-item"><a class="nav-link text-white-50" href="#image-tools-section">Image Tools</a></li>
-                        <li class="nav-item"><a class="nav-link text-white-50" href="#pdf-tools-section">PDF Tools</a></li>
-                        <li class="nav-item"><a class="nav-link text-white-50" href="#social-tools-section">Social Tools</a></li>
-                        <li class="nav-item"><a class="nav-link text-white-50" href="#text-tools-section">Text & Lists</a></li>
+        <!-- Mobile Toggle Button -->
+        <button class="navbar-toggler border-white-10 text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNavOffcanvas" aria-controls="mobileNavOffcanvas" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Desktop Navigation Links (Visible on LG and up) -->
+        <div class="collapse navbar-collapse d-none d-lg-flex justify-content-end" id="desktopNavbar">
+            <ul class="navbar-nav align-items-center gap-3">
+                <li class="nav-item">
+                    <a class="nav-link text-white-50 hover-text-white" href="index.html">Home</a>
+                </li>
+                <!-- Tools Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="desktopToolsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Tools
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark glass-card border-white-10 shadow-lg" aria-labelledby="desktopToolsDropdown">
+                        <li><a class="dropdown-item text-white-50 hover-text-white" href="image-tools.html"><i class="bi bi-image me-2 text-accent"></i>Image Tools</a></li>
+                        <li><a class="dropdown-item text-white-50 hover-text-white" href="pdf-tools.html"><i class="bi bi-file-earmark-pdf me-2 text-accent"></i>PDF Tools</a></li>
+                        <li><a class="dropdown-item text-white-50 hover-text-white" href="text-tools.html"><i class="bi bi-file-text me-2 text-accent"></i>Text Tools</a></li>
+                        <li><a class="dropdown-item text-white-50 hover-text-white" href="color-tools.html"><i class="bi bi-palette me-2 text-accent"></i>Color Tools</a></li>
+                        <li><hr class="dropdown-divider border-white-10"></li>
+                        <li><a class="dropdown-item text-white-50 hover-text-white" href="all-tools.html"><i class="bi bi-grid-fill me-2 text-accent"></i>All Tools</a></li>
                     </ul>
-                    <div class="d-flex align-items-center justify-content-center gap-2 mt-3 mt-lg-0">
-                        <a href="#text-tools-section" class="btn btn-gradient btn-sm rounded-pill px-4 shadow-neon">Get Started</a>
-                    </div>
-                </div>
-            </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white-50 hover-text-white" href="about.html">About</a>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
+<!-- Mobile Offcanvas Menu (Visible inside the mobile drawer popup) -->
+<div class="offcanvas offcanvas-end glass-offcanvas text-white" tabindex="-1" id="mobileNavOffcanvas" aria-labelledby="mobileNavOffcanvasLabel">
+    <div class="offcanvas-header border-bottom border-white-10">
+        <h5 class="offcanvas-title fw-bold text-gradient" id="mobileNavOffcanvasLabel">
+            <i class="bi bi-compass me-2"></i>Navigation
+        </h5>
+        <button type="button" class="btn-close btn-close-white text-reset shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    
+    <div class="offcanvas-body px-4 py-4">
+        <ul class="navbar-nav w-150">
+            <li class="nav-item mb-2">
+                <a class="nav-link text-white fs-5 px-0" href="index.html">
+                    <i class="bi bi-house-door me-2 text-accent"></i>Home
+                </a>
+            </li>
+            
+            <!-- Mobile Tools Section Header -->
+            <li class="nav-item mt-3 mb-1">
+                <span class="text-uppercase text-white-50 fs-8 fw-bold tracking-wider">All Tools</span>
+            </li>
+            
+            <!-- Individual Tools Links -->
+            <li class="nav-item">
+                <a class="nav-link text-white-50 hover-text-white ps-3 py-2" href="image-tools.html">
+                    <i class="bi bi-image me-2 text-accent"></i>Image Tools
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white-50 hover-text-white ps-3 py-2" href="pdf-tools.html">
+                    <i class="bi bi-file-earmark-pdf me-2 text-accent"></i>PDF Tools
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white-50 hover-text-white ps-3 py-2" href="text-tools.html">
+                    <i class="bi bi-file-text me-2 text-accent"></i>Text Tools
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white-50 hover-text-white ps-3 py-2" href="color-tools.html">
+                    <i class="bi bi-palette me-2 text-accent"></i>Color Tools
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white-50 hover-text-white ps-3 py-2" href="all-tools.html">
+                    <i class="bi bi-grid-fill me-2 text-accent"></i>View All Tools
+                </a>
+            </li>
+
+            <li class="nav-item mt-4">
+                <a class="nav-link text-white fs-5 px-0" href="about.html">
+                    <i class="bi bi-info-circle me-2 text-accent"></i>About
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
     <!-- Hero Section -->
     <section id="hero" class="min-vh-100 d-flex align-items-center position-relative pt-5">
         <div class="container position-relative z-2">
